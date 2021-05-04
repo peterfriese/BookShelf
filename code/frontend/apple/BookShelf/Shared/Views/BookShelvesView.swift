@@ -11,39 +11,52 @@ struct BookShelvesView: View {
   @ObservedObject var store: BookShelfStore
   
   var body: some View {
-    VStack(alignment: .leading) {
-      List {
-        ForEach(Array(store.shelves.enumerated()), id: \.element.id) { index, item in
-          NavigationLink(destination: BookShelfView(bookShelf: $store.shelves[index])) {
-            HStack {
-              Label(item.title, systemImage: "folder")
-              Spacer()
-              Text("\(item.count)")
-            }
+    List {
+      ForEach(Array(store.shelves.enumerated()), id: \.element.id) { index, item in
+        NavigationLink(destination: BookShelfView(bookShelf: $store.shelves[index])) {
+          HStack {
+            Label(item.title, systemImage: "folder")
+            Spacer()
+            Text("\(item.count)")
           }
         }
       }
-      .listStyle(SidebarListStyle())
-      .navigationTitle("My Library")
+    }
+    .listStyle(SidebarListStyle())
+    .navigationTitle("My Library")
+    .bottomToolbar()
+  }
+}
+
+extension View {
+  func bottomToolbar() -> some View {
+    self.modifier(BottomToolbar())
+  }
+}
+struct BottomToolbar: ViewModifier {
+  func body(content: Content) -> some View {
+    #if os(macOS)
+    content
+      .overlay(
+        HStack {
+          Button(action: {})  {
+            Label("New Folder", systemImage: "plus.circle")
+          }
+          .buttonStyle(PlainButtonStyle())
+          .padding([.leading, .bottom], 8)
+          Spacer()
+        }
+        , alignment: .bottom)
+    #elseif os(iOS)
+    content
       .toolbar {
-        #if os(iOS)
         ToolbarItem(placement: .bottomBar) {
           Button(action: { }) {
             Image(systemName: "folder.badge.plus")
           }
         }
-        #endif
       }
-      #if os(macOS)
-      HStack {
-        Button(action: {})  {
-          Label("New Folder", systemImage: "plus.circle")
-        }
-        .buttonStyle(PlainButtonStyle())
-        .padding([.leading, .bottom], 8)
-      }
-      #endif
-    }
+    #endif
   }
 }
 
