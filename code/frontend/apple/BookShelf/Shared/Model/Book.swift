@@ -23,10 +23,19 @@ extension Book {
 }
 
 extension Book {
-  static let samples = [
-    Book(title: "Changer", author: "Matt Gemmell", isbn: "9781916265202", pages: 476),
-    Book(title: "SwiftUI for Absolute Beginners", author: "Jayant Varma", isbn: "9781484255155", pages: 200),
+  static let reading = [
     Book(title: "Why we sleep", author: "Matthew Walker", isbn: "9780141983769", pages: 368),
-    Book(title: "The Hitchhiker's Guide to the Galaxy", author: "Douglas Adams", isbn: "9780671461492", pages: 216)
+    Book(title: "The Hitchhiker's Guide to the Galaxy", author: "Douglas Adams", isbn: "9780671461492", pages: 216),
   ]
+  
+  static let wantToRead = [
+    Book(title: "Changer", author: "Matt Gemmell", isbn: "9781916265202", pages: 476),
+  ]
+  
+  static let read = [
+    Book(title: "SwiftUI for Absolute Beginners", author: "Jayant Varma", isbn: "9781484255155", pages: 200),
+  ]
+  
+  static let samples = [reading, wantToRead, read].flatMap { $0 }
+
 }

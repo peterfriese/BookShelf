@@ -1,5 +1,5 @@
 //
-//  BooksListScreen.swift
+//  BookShelfView.swift
 //  BookShelf
 //
 //  Created by Peter Friese on 04.05.21.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct BooksListScreen: View {
-  @ObservedObject var booksViewModel: BooksViewModel
+struct BookShelfView: View {
+  @Binding var bookShelf: BookShelf
   
   var body: some View {
     List {
@@ -33,11 +33,11 @@ struct BooksListScreen: View {
       // Inspired by https://stackoverflow.com/a/59295207/281221
       // This doesn't refresh the details view immediately after editing the book in the edit view
       // UPDATE: fixed by using `id: \.element.id` to identify the element (after all, we're editing the element!!!!! so it does change entirely and thus the edited version is != the old version!
-      ForEach(Array(booksViewModel.books.enumerated()), id: \.element.id) { index, item in
-        BookRowView(book: $booksViewModel.books[index])
+      ForEach(Array(bookShelf.books.enumerated()), id: \.element.id) { index, item in
+        BookRowView(book: $bookShelf.books[index])
       }
       .onDelete { indexSet in
-        booksViewModel.books.remove(atOffsets: indexSet)
+        bookShelf.books.remove(atOffsets: indexSet)
       }
       
       //      // This is inpired by https://lostmoa.com/blog/BindingToArrayInSwiftUI/
@@ -52,23 +52,22 @@ struct BooksListScreen: View {
       //      .onDelete { indexSet in
       //        booksViewModel.books.remove(atOffsets: indexSet)
       //      }
-//      .listRowBackground(Color(UIColor.systemGray6))
+      //      .listRowBackground(Color(UIColor.systemGray6))
     }
+    .navigationTitle(bookShelf.title)
   }
 }
 
-struct BooksListScreen_Previews: PreviewProvider {
-  static let booksViewModel = BooksViewModel()
-  
+struct BookShelfView_Previews: PreviewProvider {
   static var previews: some View {
     Group {
       NavigationView {
-        BooksListScreen(booksViewModel: booksViewModel)
+        BookShelfView(bookShelf: .constant(BookShelf.samples[0]))
           .navigationTitle("Books")
           .preferredColorScheme(.dark)
       }
       NavigationView {
-        BooksListScreen(booksViewModel: booksViewModel)
+        BookShelfView(bookShelf: .constant(BookShelf.samples[0]))
           .navigationTitle("Books")
           .preferredColorScheme(.light)
       }

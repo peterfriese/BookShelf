@@ -15,14 +15,24 @@ struct BookShelfApp: App {
   // them wouldn't be reflected on the other ones.
   // See this in action by running the app on an iPad and then use multi-tasking to arrange
   // two app windows side-by-side.
-  @StateObject var booksViewModel = BooksViewModel()
+  @StateObject var store = BookShelfStore(shelves: BookShelf.samples)
 
   var body: some Scene {
     WindowGroup {
       NavigationView {
-        BooksListScreen(booksViewModel: booksViewModel)
-          .navigationTitle("Books")
+        BookShelvesView(store: store)
+        Text("Select a shelf to see its books")
+        Text("Select a book to see its details")
       }
     }
   }
 }
+
+#if os(iOS)
+// from https://developer.apple.com/forums/thread/651511?answerId=668188022#668188022
+extension UISplitViewController {
+  open override func viewDidLoad() {
+    preferredDisplayMode = .twoBesideSecondary
+  }
+}
+#endif

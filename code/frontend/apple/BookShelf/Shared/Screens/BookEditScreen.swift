@@ -61,14 +61,24 @@ struct BookEditScreen: View {
         Toggle("Read", isOn: $bookEditViewModel.book.isRead)
       }
       .navigationTitle(bookEditViewModel.book.title)
-      .navigationBarItems(leading:
-                            Button(action: cancel) {
-                              Text("Cancel")
-                            },
-                          trailing:
-                            Button(action: save) {
-                              Text("Save")
-                            })
+      .toolbar(content: {
+        ToolbarItem {
+          Button(action: cancel) {
+            Text("Cancel")
+          }
+          Button(action: save) {
+            Text("Save")
+          }
+        }
+      })
+//      .navigationBarItems(leading:
+//                            Button(action: cancel) {
+//                              Text("Cancel")
+//                            },
+//                          trailing:
+//                            Button(action: save) {
+//                              Text("Save")
+//                            })
     }
   }
 }
