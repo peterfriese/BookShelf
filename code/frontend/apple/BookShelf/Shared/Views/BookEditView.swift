@@ -20,7 +20,7 @@ class BookEditViewModel: ObservableObject {
   }
 }
 
-struct BookEditScreen: View {
+struct BookEditView: View {
   @Binding var book: Book
   @ObservedObject var bookEditViewModel: BookEditViewModel
   @Environment(\.presentationMode) var presentationMode
@@ -62,32 +62,24 @@ struct BookEditScreen: View {
       }
       .navigationTitle(bookEditViewModel.book.title)
       .toolbar(content: {
-        ToolbarItem {
+        ToolbarItem(placement: .cancellationAction) {
           Button(action: cancel) {
             Text("Cancel")
           }
+        }
+        ToolbarItem(placement: .confirmationAction) {
           Button(action: save) {
             Text("Save")
           }
         }
       })
-//      .navigationBarItems(leading:
-//                            Button(action: cancel) {
-//                              Text("Cancel")
-//                            },
-//                          trailing:
-//                            Button(action: save) {
-//                              Text("Save")
-//                            })
     }
   }
 }
 
-struct BookEditScreen_Previews: PreviewProvider {
+struct BookEditView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
-      BookEditScreen(book: .constant(Book.samples[0]))
-    }
-    .preferredColorScheme(.dark)
+    BookEditView(book: .constant(Book.samples[0]))
+      .preferredColorScheme(.dark)
   }
 }

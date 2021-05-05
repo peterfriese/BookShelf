@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,10 +17,10 @@
 		88CFEBE7264140380080CE87 /* BooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CFEBE5264140380080CE87 /* BooksViewModel.swift */; };
 		88CFEBEA264140C10080CE87 /* BookRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CFEBE9264140C10080CE87 /* BookRowView.swift */; };
 		88CFEBEB264140C10080CE87 /* BookRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CFEBE9264140C10080CE87 /* BookRowView.swift */; };
-		88CFEBED264140ED0080CE87 /* BookDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CFEBEC264140ED0080CE87 /* BookDetailsScreen.swift */; };
-		88CFEBEE264140ED0080CE87 /* BookDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CFEBEC264140ED0080CE87 /* BookDetailsScreen.swift */; };
-		88CFEBF02641413C0080CE87 /* BookEditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CFEBEF2641413C0080CE87 /* BookEditScreen.swift */; };
-		88CFEBF12641413C0080CE87 /* BookEditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CFEBEF2641413C0080CE87 /* BookEditScreen.swift */; };
+		88CFEBED264140ED0080CE87 /* BookDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CFEBEC264140ED0080CE87 /* BookDetailsView.swift */; };
+		88CFEBEE264140ED0080CE87 /* BookDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CFEBEC264140ED0080CE87 /* BookDetailsView.swift */; };
+		88CFEBF02641413C0080CE87 /* BookEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CFEBEF2641413C0080CE87 /* BookEditView.swift */; };
+		88CFEBF12641413C0080CE87 /* BookEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CFEBEF2641413C0080CE87 /* BookEditView.swift */; };
 		88CFEBF4264141810080CE87 /* ISBN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CFEBF3264141810080CE87 /* ISBN.swift */; };
 		88CFEBF5264141810080CE87 /* ISBN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CFEBF3264141810080CE87 /* ISBN.swift */; };
 		88CFEBF7264159F50080CE87 /* BookShelvesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CFEBF6264159F50080CE87 /* BookShelvesView.swift */; };
@@ -31,6 +31,8 @@
 		88CFEBFE264167230080CE87 /* BookShelfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CFEBFC264167230080CE87 /* BookShelfView.swift */; };
 		88CFEC032641695D0080CE87 /* BookShelfViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CFEC022641695D0080CE87 /* BookShelfViewModel.swift */; };
 		88CFEC042641695D0080CE87 /* BookShelfViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CFEC022641695D0080CE87 /* BookShelfViewModel.swift */; };
+		88CFEC0A2641E87A0080CE87 /* SystemColors in Frameworks */ = {isa = PBXBuildFile; productRef = 88CFEC092641E87A0080CE87 /* SystemColors */; };
+		88CFEC0D2641E8DA0080CE87 /* SystemColors in Frameworks */ = {isa = PBXBuildFile; productRef = 88CFEC0C2641E8DA0080CE87 /* SystemColors */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +46,8 @@
 		88CFEBE126413FFD0080CE87 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		88CFEBE5264140380080CE87 /* BooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModel.swift; sourceTree = "<group>"; };
 		88CFEBE9264140C10080CE87 /* BookRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRowView.swift; sourceTree = "<group>"; };
-		88CFEBEC264140ED0080CE87 /* BookDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsScreen.swift; sourceTree = "<group>"; };
-		88CFEBEF2641413C0080CE87 /* BookEditScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookEditScreen.swift; sourceTree = "<group>"; };
+		88CFEBEC264140ED0080CE87 /* BookDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsView.swift; sourceTree = "<group>"; };
+		88CFEBEF2641413C0080CE87 /* BookEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookEditView.swift; sourceTree = "<group>"; };
 		88CFEBF3264141810080CE87 /* ISBN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISBN.swift; sourceTree = "<group>"; };
 		88CFEBF6264159F50080CE87 /* BookShelvesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookShelvesView.swift; sourceTree = "<group>"; };
 		88CFEBF926415A220080CE87 /* BookShelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookShelf.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88CFEC0A2641E87A0080CE87 /* SystemColors in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88CFEC0D2641E8DA0080CE87 /* SystemColors in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +82,7 @@
 				88CFEBC3264130100080CE87 /* iOS */,
 				88CFEBCA264130100080CE87 /* macOS */,
 				88CFEBC2264130100080CE87 /* Products */,
+				88CFEC0B2641E8DA0080CE87 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,8 +137,6 @@
 		88CFEBDC26413C140080CE87 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				88CFEBEC264140ED0080CE87 /* BookDetailsScreen.swift */,
-				88CFEBEF2641413C0080CE87 /* BookEditScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -161,6 +164,8 @@
 			children = (
 				88CFEBF6264159F50080CE87 /* BookShelvesView.swift */,
 				88CFEBFC264167230080CE87 /* BookShelfView.swift */,
+				88CFEBEC264140ED0080CE87 /* BookDetailsView.swift */,
+				88CFEBEF2641413C0080CE87 /* BookEditView.swift */,
 				88CFEBE9264140C10080CE87 /* BookRowView.swift */,
 			);
 			path = Views;
@@ -172,6 +177,13 @@
 				88CFEBF3264141810080CE87 /* ISBN.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		88CFEC0B2641E8DA0080CE87 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +202,9 @@
 			dependencies = (
 			);
 			name = "BookShelf (iOS)";
+			packageProductDependencies = (
+				88CFEC092641E87A0080CE87 /* SystemColors */,
+			);
 			productName = "BookShelf (iOS)";
 			productReference = 88CFEBC1264130100080CE87 /* BookShelf.app */;
 			productType = "com.apple.product-type.application";
@@ -207,6 +222,9 @@
 			dependencies = (
 			);
 			name = "BookShelf (macOS)";
+			packageProductDependencies = (
+				88CFEC0C2641E8DA0080CE87 /* SystemColors */,
+			);
 			productName = "BookShelf (macOS)";
 			productReference = 88CFEBC9264130100080CE87 /* BookShelf.app */;
 			productType = "com.apple.product-type.application";
@@ -237,6 +255,9 @@
 				Base,
 			);
 			mainGroup = 88CFEBB42641300E0080CE87;
+			packageReferences = (
+				88CFEC082641E87A0080CE87 /* XCRemoteSwiftPackageReference "swiftui-system-colors" */,
+			);
 			productRefGroup = 88CFEBC2264130100080CE87 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -278,8 +299,8 @@
 				88CFEBFA26415A220080CE87 /* BookShelf.swift in Sources */,
 				88CFEBFD264167230080CE87 /* BookShelfView.swift in Sources */,
 				88CFEBE6264140380080CE87 /* BooksViewModel.swift in Sources */,
-				88CFEBED264140ED0080CE87 /* BookDetailsScreen.swift in Sources */,
-				88CFEBF02641413C0080CE87 /* BookEditScreen.swift in Sources */,
+				88CFEBED264140ED0080CE87 /* BookDetailsView.swift in Sources */,
+				88CFEBF02641413C0080CE87 /* BookEditView.swift in Sources */,
 				88CFEBF7264159F50080CE87 /* BookShelvesView.swift in Sources */,
 				88CFEBE226413FFD0080CE87 /* Book.swift in Sources */,
 			);
@@ -296,8 +317,8 @@
 				88CFEBFB26415A220080CE87 /* BookShelf.swift in Sources */,
 				88CFEBFE264167230080CE87 /* BookShelfView.swift in Sources */,
 				88CFEBE7264140380080CE87 /* BooksViewModel.swift in Sources */,
-				88CFEBEE264140ED0080CE87 /* BookDetailsScreen.swift in Sources */,
-				88CFEBF12641413C0080CE87 /* BookEditScreen.swift in Sources */,
+				88CFEBEE264140ED0080CE87 /* BookDetailsView.swift in Sources */,
+				88CFEBF12641413C0080CE87 /* BookEditView.swift in Sources */,
 				88CFEBF8264159F50080CE87 /* BookShelvesView.swift in Sources */,
 				88CFEBE326413FFD0080CE87 /* Book.swift in Sources */,
 			);
@@ -541,6 +562,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		88CFEC082641E87A0080CE87 /* XCRemoteSwiftPackageReference "swiftui-system-colors" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/diniska/swiftui-system-colors";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		88CFEC092641E87A0080CE87 /* SystemColors */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88CFEC082641E87A0080CE87 /* XCRemoteSwiftPackageReference "swiftui-system-colors" */;
+			productName = SystemColors;
+		};
+		88CFEC0C2641E8DA0080CE87 /* SystemColors */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88CFEC082641E87A0080CE87 /* XCRemoteSwiftPackageReference "swiftui-system-colors" */;
+			productName = SystemColors;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 88CFEBB52641300E0080CE87 /* Project object */;
 }

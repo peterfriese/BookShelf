@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SystemColors",
+        "repositoryURL": "https://github.com/diniska/swiftui-system-colors",
+        "state": {
+          "branch": null,
+          "revision": "0a9c4187e55ab127837394e9e4b5434ee1e7e0ac",
+          "version": "1.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
