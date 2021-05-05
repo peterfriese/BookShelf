@@ -25,6 +25,9 @@ struct BookShelvesView: View {
     .listStyle(SidebarListStyle())
     .navigationTitle("My Library")
     .bottomToolbar()
+    .onAppear() {
+      store.subscribe()
+    }
   }
 }
 
@@ -33,6 +36,7 @@ extension View {
     self.modifier(BottomToolbar())
   }
 }
+
 struct BottomToolbar: ViewModifier {
   func body(content: Content) -> some View {
     #if os(macOS)

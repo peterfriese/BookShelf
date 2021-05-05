@@ -6,14 +6,23 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
-struct BookShelf: Hashable, Identifiable {
-  var id = UUID().uuidString
+struct BookShelf: Codable, Hashable, Identifiable {
+  @DocumentID var id = UUID().uuidString
   var title: String
+  var books = [Book]()
+  
+  enum CodingKeys: String, CodingKey {
+    case id
+    case title
+  }
+}
+
+extension BookShelf {
   var count: Int {
     return books.count
   }
-  var books: [Book]
 }
 
 extension BookShelf {

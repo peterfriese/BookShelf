@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct BookShelfApp: App {
@@ -16,7 +17,11 @@ struct BookShelfApp: App {
   // See this in action by running the app on an iPad and then use multi-tasking to arrange
   // two app windows side-by-side.
   @StateObject var store = BookShelfStore(shelves: BookShelf.samples)
-
+  
+  init() {
+    FirebaseApp.configure()
+  }
+  
   var body: some Scene {
     WindowGroup {
       NavigationView {

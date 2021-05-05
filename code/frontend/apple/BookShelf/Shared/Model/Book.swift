@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
-struct Book: Hashable, Identifiable {
-  var id = UUID()
+struct Book: Codable, Hashable, Identifiable {
+  @DocumentID var id = UUID().uuidString
   var title: String
   var author: String
   var isbn: String
