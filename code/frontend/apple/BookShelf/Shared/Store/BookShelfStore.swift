@@ -11,7 +11,6 @@ import Firebase
 import FirebaseFirestoreSwift
 import os
 
-
 class BookShelfStore: ObservableObject {
   // MARK: - Dependencies
   var db = Firestore.firestore()
@@ -70,7 +69,7 @@ class BookShelfStore: ObservableObject {
                 return nil
               }
             case .failure(let error):
-              // A Book value could not be initialized from the DocumentSnapshot.
+              // A BookShelf value could not be initialized from the DocumentSnapshot.
               switch error {
               case DecodingError.typeMismatch(_, let context):
                 self?.logger.debug("\(error.localizedDescription): \(context.debugDescription)")

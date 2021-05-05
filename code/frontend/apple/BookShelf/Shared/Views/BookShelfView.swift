@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BookShelfView: View {
   @Binding var bookShelf: BookShelf
+  @EnvironmentObject var bookStore: BookStore
   
   var body: some View {
     List {
@@ -33,11 +34,11 @@ struct BookShelfView: View {
       // Inspired by https://stackoverflow.com/a/59295207/281221
       // This doesn't refresh the details view immediately after editing the book in the edit view
       // UPDATE: fixed by using `id: \.element.id` to identify the element (after all, we're editing the element!!!!! so it does change entirely and thus the edited version is != the old version!
-      ForEach(Array(bookShelf.books.enumerated()), id: \.element.id) { index, item in
-        BookRowView(book: $bookShelf.books[index])
+      ForEach(Array(bookStore.books.enumerated()), id: \.element.id) { index, item in
+        BookRowView(book: $bookStore.books[index])
       }
       .onDelete { indexSet in
-        bookShelf.books.remove(atOffsets: indexSet)
+        bookStore.books.remove(atOffsets: indexSet)
       }
       
       //      // This is inpired by https://lostmoa.com/blog/BindingToArrayInSwiftUI/
@@ -55,6 +56,12 @@ struct BookShelfView: View {
       //      .listRowBackground(Color(UIColor.systemGray6))
     }
     .navigationTitle(bookShelf.title)
+    .onAppear() {
+      print("\(#function): \(bookShelf.title) - \(bookShelf.id)")
+      if let shelfId = bookShelf.id {
+        bookStore.subscribe(shelfId: shelfId)
+      }
+    }
   }
 }
 

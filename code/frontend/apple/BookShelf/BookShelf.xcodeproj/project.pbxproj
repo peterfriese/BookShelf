@@ -38,11 +38,11 @@
 		88CFEC17264291A20080CE87 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 88CFEC16264291A20080CE87 /* FirebaseAuth */; };
 		88CFEC19264291A20080CE87 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 88CFEC18264291A20080CE87 /* FirebaseFirestore */; };
 		88CFEC1B264291A20080CE87 /* FirebaseAnalyticsSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 88CFEC1A264291A20080CE87 /* FirebaseAnalyticsSwift-Beta */; };
-		88CFEC1D264291C90080CE87 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 88CFEC1C264291C90080CE87 /* FirebaseAnalytics */; };
-		88CFEC1F264291C90080CE87 /* FirebaseAnalyticsSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 88CFEC1E264291C90080CE87 /* FirebaseAnalyticsSwift-Beta */; };
 		88CFEC21264291C90080CE87 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 88CFEC20264291C90080CE87 /* FirebaseAuth */; };
 		88CFEC23264291C90080CE87 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 88CFEC22264291C90080CE87 /* FirebaseFirestore */; };
 		88CFEC25264291C90080CE87 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 88CFEC24264291C90080CE87 /* FirebaseFirestoreSwift-Beta */; };
+		88CFEC272642A4390080CE87 /* BookStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CFEC262642A4390080CE87 /* BookStore.swift */; };
+		88CFEC282642A4390080CE87 /* BookStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CFEC262642A4390080CE87 /* BookStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +63,7 @@
 		88CFEBFC264167230080CE87 /* BookShelfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookShelfView.swift; sourceTree = "<group>"; };
 		88CFEC022641695D0080CE87 /* BookShelfStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookShelfStore.swift; sourceTree = "<group>"; };
 		88CFEC0E264290E60080CE87 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		88CFEC262642A4390080CE87 /* BookStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +84,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88CFEC1F264291C90080CE87 /* FirebaseAnalyticsSwift-Beta in Frameworks */,
-				88CFEC1D264291C90080CE87 /* FirebaseAnalytics in Frameworks */,
 				88CFEC0D2641E8DA0080CE87 /* SystemColors in Frameworks */,
 				88CFEC25264291C90080CE87 /* FirebaseFirestoreSwift-Beta in Frameworks */,
 				88CFEC23264291C90080CE87 /* FirebaseFirestore in Frameworks */,
@@ -167,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				88CFEC022641695D0080CE87 /* BookShelfStore.swift */,
+				88CFEC262642A4390080CE87 /* BookStore.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -241,8 +241,6 @@
 			name = "BookShelf (macOS)";
 			packageProductDependencies = (
 				88CFEC0C2641E8DA0080CE87 /* SystemColors */,
-				88CFEC1C264291C90080CE87 /* FirebaseAnalytics */,
-				88CFEC1E264291C90080CE87 /* FirebaseAnalyticsSwift-Beta */,
 				88CFEC20264291C90080CE87 /* FirebaseAuth */,
 				88CFEC22264291C90080CE87 /* FirebaseFirestore */,
 				88CFEC24264291C90080CE87 /* FirebaseFirestoreSwift-Beta */,
@@ -323,6 +321,7 @@
 				88CFEBEA264140C10080CE87 /* BookRowView.swift in Sources */,
 				88CFEBFA26415A220080CE87 /* BookShelf.swift in Sources */,
 				88CFEBFD264167230080CE87 /* BookShelfView.swift in Sources */,
+				88CFEC272642A4390080CE87 /* BookStore.swift in Sources */,
 				88CFEBED264140ED0080CE87 /* BookDetailsView.swift in Sources */,
 				88CFEBF02641413C0080CE87 /* BookEditView.swift in Sources */,
 				88CFEBF7264159F50080CE87 /* BookShelvesView.swift in Sources */,
@@ -340,6 +339,7 @@
 				88CFEBEB264140C10080CE87 /* BookRowView.swift in Sources */,
 				88CFEBFB26415A220080CE87 /* BookShelf.swift in Sources */,
 				88CFEBFE264167230080CE87 /* BookShelfView.swift in Sources */,
+				88CFEC282642A4390080CE87 /* BookStore.swift in Sources */,
 				88CFEBEE264140ED0080CE87 /* BookDetailsView.swift in Sources */,
 				88CFEBF12641413C0080CE87 /* BookEditView.swift in Sources */,
 				88CFEBF8264159F50080CE87 /* BookShelvesView.swift in Sources */,
@@ -637,16 +637,6 @@
 			productName = FirebaseFirestore;
 		};
 		88CFEC1A264291A20080CE87 /* FirebaseAnalyticsSwift-Beta */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 88CFEC11264291A20080CE87 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = "FirebaseAnalyticsSwift-Beta";
-		};
-		88CFEC1C264291C90080CE87 /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 88CFEC11264291A20080CE87 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		88CFEC1E264291C90080CE87 /* FirebaseAnalyticsSwift-Beta */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 88CFEC11264291A20080CE87 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseAnalyticsSwift-Beta";

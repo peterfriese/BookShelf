@@ -51,7 +51,7 @@ struct BookDetailsView: View {
             .font(.headline)
           Spacer()
           Button(action: { book.isRead.toggle() }) {
-            Image(systemName: book.isRead ? "circlebadge" : "checkmark.circle.fill")
+            Image(systemName: book.isRead ? "checkmark.circle.fill" : "circlebadge")
               .resizable()
               .frame(width: 22, height: 22, alignment: .center)
           }

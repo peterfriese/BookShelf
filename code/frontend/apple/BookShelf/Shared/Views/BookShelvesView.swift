@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct BookShelvesView: View {
-  @ObservedObject var store: BookShelfStore
+//  @ObservedObject var store: BookShelfStore
+  @EnvironmentObject var bookShelfStore: BookShelfStore
+  @EnvironmentObject var bookStore: BookStore
   
   var body: some View {
     List {
-      ForEach(Array(store.shelves.enumerated()), id: \.element.id) { index, item in
-        NavigationLink(destination: BookShelfView(bookShelf: $store.shelves[index])) {
+      ForEach(Array(bookShelfStore.shelves.enumerated()), id: \.element.id) { index, item in
+        NavigationLink(destination:
+                        BookShelfView(bookShelf: $bookShelfStore.shelves[index]).environmentObject(bookStore)
+        ) {
           HStack {
             Label(item.title, systemImage: "folder")
             Spacer()
@@ -26,7 +30,7 @@ struct BookShelvesView: View {
     .navigationTitle("My Library")
     .bottomToolbar()
     .onAppear() {
-      store.subscribe()
+      bookShelfStore.subscribe()
     }
   }
 }
@@ -65,10 +69,11 @@ struct BottomToolbar: ViewModifier {
 }
 
 struct BookShelvesView_Previews: PreviewProvider {
-  static let store = BookShelfStore(shelves: BookShelf.samples)
+  static let bookShelfStore = BookShelfStore(shelves: BookShelf.samples)
   static var previews: some View {
     NavigationView {
-      BookShelvesView(store: store)
+      BookShelvesView()
+        .environmentObject(bookShelfStore)
     }
   }
 }

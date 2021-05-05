@@ -16,7 +16,8 @@ struct BookShelfApp: App {
   // them wouldn't be reflected on the other ones.
   // See this in action by running the app on an iPad and then use multi-tasking to arrange
   // two app windows side-by-side.
-  @StateObject var store = BookShelfStore(shelves: BookShelf.samples)
+  @StateObject var bookShelfStore = BookShelfStore(shelves: BookShelf.samples)
+  @StateObject var bookStore = BookStore(books: Book.samples)
   
   init() {
     FirebaseApp.configure()
@@ -25,7 +26,9 @@ struct BookShelfApp: App {
   var body: some Scene {
     WindowGroup {
       NavigationView {
-        BookShelvesView(store: store)
+        BookShelvesView()
+          .environmentObject(bookShelfStore)
+          .environmentObject(bookStore)
         Text("Select a shelf to see its books")
         Text("Select a book to see its details")
       }
