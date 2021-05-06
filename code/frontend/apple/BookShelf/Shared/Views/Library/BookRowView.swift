@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SystemColors
+import Kingfisher
 
 struct BookRowView: View {
   @Binding var book: Book
@@ -14,13 +15,35 @@ struct BookRowView: View {
   var body: some View {
     NavigationLink(destination: BookDetailsView(book: $book)) {
       HStack(alignment: .top) {
-        Image(book.mediumCoverImageName)
-          .resizable()
-          .aspectRatio(contentMode: .fit)
-          .frame(height: 90)
-          .cornerRadius(4.0)
-          .shadow(color: .systemGray, radius: 4, x: 2.0, y: 2.0)
-          .padding(.bottom)
+        if book.hasImageUrl {
+          KFImage(book.mediumCoverImageUrl)
+//            .cancelOnDisappear(true)
+            .placeholder {
+              Image(systemName: "book.closed")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .padding()
+                .frame(height: 90)
+                .cornerRadius(4.0)
+                .shadow(color: .systemGray, radius: 4, x: 2.0, y: 2.0)
+                .padding(.bottom)
+            }
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(height: 90)
+            .cornerRadius(4.0)
+            .shadow(color: .systemGray, radius: 4, x: 2.0, y: 2.0)
+            .padding(.bottom)
+        }
+        else {
+          Image(book.mediumCoverImageName)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(height: 90)
+            .cornerRadius(4.0)
+            .shadow(color: .systemGray, radius: 4, x: 2.0, y: 2.0)
+            .padding(.bottom)
+        }
         VStack(alignment: .leading) {
           Text(book.title)
             .font(.headline)

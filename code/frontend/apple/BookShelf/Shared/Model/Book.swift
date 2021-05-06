@@ -10,6 +10,8 @@ import FirebaseFirestoreSwift
 
 struct Book: Codable, Hashable, Identifiable {
   @DocumentID var id = UUID().uuidString
+  var shelfId: String?
+  var userId: String = "123"
   var title: String
   var author: String
   var isbn: String
@@ -48,5 +50,4 @@ extension Book {
   ]
   
   static let samples = [reading, wantToRead, read].flatMap { $0 }
-
 }

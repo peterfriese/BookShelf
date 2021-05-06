@@ -90,4 +90,32 @@ class BookStore: ObservableObject {
         }
       }
   }
+  
+  func addBook(_ book: Book, to shelf: BookShelf? = nil) {
+    do {
+      var modifiableBook = book
+      if shelf != nil {
+        modifiableBook.shelfId = shelf?.id
+      }
+      let newDocReference = try db.collection("books").addDocument(from: modifiableBook)
+      self.logger.debug("Book stored with new document reference: \(newDocReference)")
+    }
+    catch {
+      self.logger.debug("Error saving doucment: \(error.localizedDescription)")
+    }
+  }
+  
+  func removeBooks(atOffsets indexSet: IndexSet) {
+    let books = indexSet.lazy.map { self.books[$0] }
+    books.forEach { book in
+      if let documentId = book.id {
+        db.collection("books").document(documentId).delete { error in
+          if let error = error {
+            self.logger.debug("Unable to remove document: \(error.localizedDescription)")
+          }
+        }
+      }
+    }
+  }
+
 }

@@ -6,9 +6,15 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct SearchBooksView: View {
+  @Environment(\.presentationMode) var presentationMode
   @StateObject var viewModel = OpenLibrarySearchService()
+  @EnvironmentObject var bookStore: BookStore
+  
+  var bookShelf: BookShelf
+  
   @State var searchText = ""
   @State var isSearchFieldActive = false
   
@@ -23,6 +29,11 @@ struct SearchBooksView: View {
         List {
           ForEach(viewModel.searchResult) { book in
             SearchBookRowView(book: book)
+              .contextMenu {
+                Button(action: { addBook(book) }) {
+                  Label("Add", systemImage: "plus")
+                }
+              }
           }
         }
         .listStyle(PlainListStyle())
@@ -30,20 +41,38 @@ struct SearchBooksView: View {
       }
       .navigationTitle("Search")
       //      .navigationBarHidden(isSearchFieldActive)
+      .analyticsScreen(name: "search")
+      .toolbar {
+        ToolbarItem(placement: .confirmationAction) {
+          Button("Done") {
+            dimsiss()
+          }
+        }
+      }
     }
   }
+  
+  func dimsiss() {
+    presentationMode.wrappedValue.dismiss()
+  }
+  
+  func addBook(_ book: Book) {
+    bookStore.addBook(book, to: bookShelf)
+    dimsiss()
+  }
+  
 }
 
 struct SearchBooksView_Previews: PreviewProvider {
   static var previews: some View {
     Group {
       NavigationView {
-        SearchBooksView()
+        SearchBooksView(bookShelf: BookShelf.samples[0])
           .navigationTitle("Search")
           .preferredColorScheme(.dark)
       }
       NavigationView {
-        SearchBooksView()
+        SearchBooksView(bookShelf: BookShelf.samples[0])
           .navigationTitle("Search")
           .preferredColorScheme(.light)
       }

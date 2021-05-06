@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Kingfisher
+import Firebase
 
 struct BookDetailsView: View {
   @Binding var book: Book
@@ -14,6 +16,7 @@ struct BookDetailsView: View {
   func detailsRow(_ label: String, systemImage: String, data: Int) -> some View {
     detailsRow(label, systemImage: systemImage, data: String(data))
   }
+  
   func detailsRow(_ label: String, systemImage: String, data: String) -> some View {
     VStack(alignment: .leading, spacing: 8) {
       Label(label, systemImage: systemImage)
@@ -25,23 +28,47 @@ struct BookDetailsView: View {
   var body: some View {
     Form {
       HStack(alignment: .top, spacing: 16) {
-        Image(book.mediumCoverImageName)
-          .resizable()
-          .aspectRatio(contentMode: .fit)
-          .frame(height: 90)
-          .cornerRadius(4.0)
-          .shadow(color: .systemGray, radius: 4, x: 2.0, y: 2.0)
-          .padding(.bottom)
-        VStack {
+        if book.hasImageUrl {
+          KFImage(book.mediumCoverImageUrl)
+            .cancelOnDisappear(true)
+            .placeholder {
+              Image(systemName: "book.closed")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .padding()
+                .frame(height: 90)
+                .cornerRadius(4.0)
+                .shadow(color: .systemGray, radius: 4, x: 2.0, y: 2.0)
+                .padding(.bottom)
+            }
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(height: 90)
+            .cornerRadius(4.0)
+            .shadow(color: .systemGray, radius: 4, x: 2.0, y: 2.0)
+            .padding(.bottom)
+        }
+        else {
+          Image(book.mediumCoverImageName)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(height: 90)
+            .cornerRadius(4.0)
+            .shadow(color: .systemGray, radius: 4, x: 2.0, y: 2.0)
+            .padding(.bottom)
+        }
+        VStack(alignment: .leading) {
           Text(book.title)
             .font(.headline)
+          Text("by \(book.author)")
+            .font(.subheadline)
         }
       }
-      Section {
-        detailsRow("Author", systemImage: "person.crop.rectangle", data: book.author)
+//      Section {
+//        detailsRow("Author", systemImage: "person.crop.rectangle", data: book.author)
 //        detailsRow("Genre", systemImage: "tag", data: "Science Fiction")
-      }
-      Section {
+//      }
+      Section(header: Text("Details")) {
         detailsRow("ISBN", systemImage: "number", data: book.isbn)
         detailsRow("Pages", systemImage: "book", data: book.pages)
       }
@@ -69,6 +96,7 @@ struct BookDetailsView: View {
       BookEditView(book: $book)
     }
     .navigationTitle(book.title)
+    .analyticsScreen(name: "bookdetails")
   }
 }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		887818322644050B00A9DF21 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 887818312644050B00A9DF21 /* Kingfisher */; };
+		8878183726442C0100A9DF21 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8878183626442C0100A9DF21 /* Kingfisher */; };
 		88A0B8302643D5AC00F73C2B /* SearchBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A0B82F2643D5AC00F73C2B /* SearchBooksView.swift */; };
 		88A0B8312643D5AC00F73C2B /* SearchBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A0B82F2643D5AC00F73C2B /* SearchBooksView.swift */; };
 		88A0B8352643D65700F73C2B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A0B8342643D65700F73C2B /* SearchBar.swift */; };
@@ -105,6 +106,7 @@
 				88CFEC25264291C90080CE87 /* FirebaseFirestoreSwift-Beta in Frameworks */,
 				88CFEC23264291C90080CE87 /* FirebaseFirestore in Frameworks */,
 				88CFEC21264291C90080CE87 /* FirebaseAuth in Frameworks */,
+				8878183726442C0100A9DF21 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +309,7 @@
 				88CFEC20264291C90080CE87 /* FirebaseAuth */,
 				88CFEC22264291C90080CE87 /* FirebaseFirestore */,
 				88CFEC24264291C90080CE87 /* FirebaseFirestoreSwift-Beta */,
+				8878183626442C0100A9DF21 /* Kingfisher */,
 			);
 			productName = "BookShelf (macOS)";
 			productReference = 88CFEBC9264130100080CE87 /* BookShelf.app */;
@@ -689,6 +692,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		887818312644050B00A9DF21 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 887818302644050B00A9DF21 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		8878183626442C0100A9DF21 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 887818302644050B00A9DF21 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;

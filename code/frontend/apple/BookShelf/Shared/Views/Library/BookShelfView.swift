@@ -39,7 +39,7 @@ struct BookShelfView: View {
         BookRowView(book: $bookStore.books[index])
       }
       .onDelete { indexSet in
-        bookStore.books.remove(atOffsets: indexSet)
+        bookStore.removeBooks(atOffsets: indexSet)
       }
       
       //      // This is inpired by https://lostmoa.com/blog/BindingToArrayInSwiftUI/
@@ -65,7 +65,7 @@ struct BookShelfView: View {
       }
     }
     .sheet(isPresented: $isSearchViewPresented) {
-      SearchBooksView()
+      SearchBooksView(bookShelf: bookShelf)
     }
     .onAppear() {
       if let shelfId = bookShelf.id {
