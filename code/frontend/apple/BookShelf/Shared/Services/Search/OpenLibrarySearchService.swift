@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class OpenLibrarySearch: ObservableObject {
+class OpenLibrarySearchService: ObservableObject {
   @Published var searchTerm: String = ""
   @Published var searchResult = [Book]()
   @Published var isLoading = false

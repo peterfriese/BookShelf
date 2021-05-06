@@ -8,16 +8,13 @@
 import SwiftUI
 
 struct BookShelvesView: View {
-//  @ObservedObject var store: BookShelfStore
   @EnvironmentObject var bookShelfStore: BookShelfStore
   @EnvironmentObject var bookStore: BookStore
   
   var body: some View {
     List {
       ForEach(Array(bookShelfStore.shelves.enumerated()), id: \.element.id) { index, item in
-        NavigationLink(destination:
-                        BookShelfView(bookShelf: $bookShelfStore.shelves[index]).environmentObject(bookStore)
-        ) {
+        NavigationLink(destination: BookShelfView(bookShelf: $bookShelfStore.shelves[index]).environmentObject(bookStore)) {
           HStack {
             Label(item.title, systemImage: "folder")
             Spacer()

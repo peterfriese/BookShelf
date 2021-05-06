@@ -7,6 +7,10 @@
 
 import Foundation
 
+// Data model for searching Open Library (https://openlibrary.org/dev/docs/api/books)
+// Generated using https://app.quicktype.io/ from the JSON that is produced
+// by this query: http://openlibrary.org/search.json?q=%22why%20we%20sleep%22
+
 // MARK: - OpenLibrarySearchResult
 struct OpenLibrarySearchResult: Codable {
   let numFound, start: Int?
@@ -82,13 +86,14 @@ struct OpenLibrarySearchResultBook: Codable {
 
 extension Book {
   init(from openLibraryBook: OpenLibrarySearchResultBook) {
-    let title = openLibraryBook.title ?? "(unknown title)"
-    let authorName = (openLibraryBook.authorName != nil) ? "\(String(describing: openLibraryBook.authorName?[0]))" : "(unknown author name)"
-    let isbn = (openLibraryBook.isbn != nil) ? "\(String(describing: openLibraryBook.isbn?[0]))" : "(unknown ISBN)"
+    let title = openLibraryBook.title ?? ""
+    let authorName = (openLibraryBook.authorName != nil) ? openLibraryBook.authorName?[0] : ""
+    let isbn = (openLibraryBook.isbn != nil) ? openLibraryBook.isbn?[0] : ""
 
     self.title = title
-    self.author = authorName
-    self.isbn = isbn
+    self.author = authorName ?? ""
+    self.isbn = isbn ?? ""
     self.pages = 0
+    self.coverEditionKey = openLibraryBook.coverEditionKey ?? ""
   }
 }

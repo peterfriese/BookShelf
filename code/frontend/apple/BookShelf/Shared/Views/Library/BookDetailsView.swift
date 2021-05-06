@@ -39,7 +39,7 @@ struct BookDetailsView: View {
       }
       Section {
         detailsRow("Author", systemImage: "person.crop.rectangle", data: book.author)
-        detailsRow("Genre", systemImage: "tag", data: "Science Fiction")
+//        detailsRow("Genre", systemImage: "tag", data: "Science Fiction")
       }
       Section {
         detailsRow("ISBN", systemImage: "number", data: book.isbn)

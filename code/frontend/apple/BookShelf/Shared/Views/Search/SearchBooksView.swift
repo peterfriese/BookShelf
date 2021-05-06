@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchBooksView: View {
-  @StateObject var viewModel = OpenLibrarySearch()
+  @StateObject var viewModel = OpenLibrarySearchService()
   @State var searchText = ""
   @State var isSearchFieldActive = false
   

@@ -68,7 +68,6 @@ struct BookShelfView: View {
       SearchBooksView()
     }
     .onAppear() {
-      print("\(#function): \(bookShelf.title) - \(bookShelf.id)")
       if let shelfId = bookShelf.id {
         bookStore.subscribe(shelfId: shelfId)
       }

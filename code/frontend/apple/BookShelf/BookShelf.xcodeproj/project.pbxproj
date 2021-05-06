@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		887818322644050B00A9DF21 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 887818312644050B00A9DF21 /* Kingfisher */; };
 		88A0B8302643D5AC00F73C2B /* SearchBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A0B82F2643D5AC00F73C2B /* SearchBooksView.swift */; };
 		88A0B8312643D5AC00F73C2B /* SearchBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A0B82F2643D5AC00F73C2B /* SearchBooksView.swift */; };
 		88A0B8352643D65700F73C2B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A0B8342643D65700F73C2B /* SearchBar.swift */; };
 		88A0B8362643D65700F73C2B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A0B8342643D65700F73C2B /* SearchBar.swift */; };
-		88A0B8392643D81300F73C2B /* OpenLibrarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A0B8382643D81300F73C2B /* OpenLibrarySearch.swift */; };
-		88A0B83A2643D81300F73C2B /* OpenLibrarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A0B8382643D81300F73C2B /* OpenLibrarySearch.swift */; };
+		88A0B8392643D81300F73C2B /* OpenLibrarySearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A0B8382643D81300F73C2B /* OpenLibrarySearchService.swift */; };
+		88A0B83A2643D81300F73C2B /* OpenLibrarySearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A0B8382643D81300F73C2B /* OpenLibrarySearchService.swift */; };
 		88A0B83C2643D88600F73C2B /* SearchBookRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A0B83B2643D88600F73C2B /* SearchBookRowView.swift */; };
 		88A0B83D2643D88600F73C2B /* SearchBookRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A0B83B2643D88600F73C2B /* SearchBookRowView.swift */; };
 		88A0B8402643DDA600F73C2B /* OpenLibarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A0B83F2643DDA600F73C2B /* OpenLibarySearch.swift */; };
@@ -58,7 +59,7 @@
 /* Begin PBXFileReference section */
 		88A0B82F2643D5AC00F73C2B /* SearchBooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBooksView.swift; sourceTree = "<group>"; };
 		88A0B8342643D65700F73C2B /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
-		88A0B8382643D81300F73C2B /* OpenLibrarySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenLibrarySearch.swift; sourceTree = "<group>"; };
+		88A0B8382643D81300F73C2B /* OpenLibrarySearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenLibrarySearchService.swift; sourceTree = "<group>"; };
 		88A0B83B2643D88600F73C2B /* SearchBookRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookRowView.swift; sourceTree = "<group>"; };
 		88A0B83F2643DDA600F73C2B /* OpenLibarySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenLibarySearch.swift; sourceTree = "<group>"; };
 		88CFEBBA2641300E0080CE87 /* BookShelfApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookShelfApp.swift; sourceTree = "<group>"; };
@@ -88,6 +89,7 @@
 			files = (
 				88CFEC1B264291A20080CE87 /* FirebaseAnalyticsSwift-Beta in Frameworks */,
 				88CFEC15264291A20080CE87 /* FirebaseFirestoreSwift-Beta in Frameworks */,
+				887818322644050B00A9DF21 /* Kingfisher in Frameworks */,
 				88CFEC13264291A20080CE87 /* FirebaseAnalytics in Frameworks */,
 				88CFEC0A2641E87A0080CE87 /* SystemColors in Frameworks */,
 				88CFEC19264291A20080CE87 /* FirebaseFirestore in Frameworks */,
@@ -109,6 +111,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8878182F2644021700A9DF21 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				88A0B8372643D7F700F73C2B /* Search */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		88A0B8322643D5CF00F73C2B /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,7 +144,8 @@
 		88A0B8372643D7F700F73C2B /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				88A0B8382643D81300F73C2B /* OpenLibrarySearch.swift */,
+				88A0B83F2643DDA600F73C2B /* OpenLibarySearch.swift */,
+				88A0B8382643D81300F73C2B /* OpenLibrarySearchService.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -162,11 +173,12 @@
 		88CFEBB92641300E0080CE87 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				88CFEBF2264141700080CE87 /* Utils */,
 				88CFEBDB26413C070080CE87 /* App */,
 				88CFEBE8264140AF0080CE87 /* Views */,
 				88CFEBE026413FE80080CE87 /* Model */,
 				88CFEBE4264140240080CE87 /* Store */,
+				8878182F2644021700A9DF21 /* Services */,
+				88CFEBF2264141700080CE87 /* Utils */,
 				88CFEBBC264130100080CE87 /* Assets.xcassets */,
 				88CFEC0E264290E60080CE87 /* GoogleService-Info.plist */,
 			);
@@ -212,7 +224,6 @@
 			children = (
 				88CFEBE126413FFD0080CE87 /* Book.swift */,
 				88CFEBF926415A220080CE87 /* BookShelf.swift */,
-				88A0B83F2643DDA600F73C2B /* OpenLibarySearch.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,7 +232,6 @@
 			isa = PBXGroup;
 			children = (
 				88A0B83E2643D94E00F73C2B /* Library */,
-				88A0B8372643D7F700F73C2B /* Search */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -273,6 +283,7 @@
 				88CFEC16264291A20080CE87 /* FirebaseAuth */,
 				88CFEC18264291A20080CE87 /* FirebaseFirestore */,
 				88CFEC1A264291A20080CE87 /* FirebaseAnalyticsSwift-Beta */,
+				887818312644050B00A9DF21 /* Kingfisher */,
 			);
 			productName = "BookShelf (iOS)";
 			productReference = 88CFEBC1264130100080CE87 /* BookShelf.app */;
@@ -330,6 +341,7 @@
 			packageReferences = (
 				88CFEC082641E87A0080CE87 /* XCRemoteSwiftPackageReference "swiftui-system-colors" */,
 				88CFEC11264291A20080CE87 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				887818302644050B00A9DF21 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 88CFEBC2264130100080CE87 /* Products */;
 			projectDirPath = "";
@@ -378,7 +390,7 @@
 				88A0B8302643D5AC00F73C2B /* SearchBooksView.swift in Sources */,
 				88CFEBED264140ED0080CE87 /* BookDetailsView.swift in Sources */,
 				88A0B8352643D65700F73C2B /* SearchBar.swift in Sources */,
-				88A0B8392643D81300F73C2B /* OpenLibrarySearch.swift in Sources */,
+				88A0B8392643D81300F73C2B /* OpenLibrarySearchService.swift in Sources */,
 				88A0B8402643DDA600F73C2B /* OpenLibarySearch.swift in Sources */,
 				88CFEBF02641413C0080CE87 /* BookEditView.swift in Sources */,
 				88CFEBF7264159F50080CE87 /* BookShelvesView.swift in Sources */,
@@ -401,7 +413,7 @@
 				88A0B8312643D5AC00F73C2B /* SearchBooksView.swift in Sources */,
 				88CFEBEE264140ED0080CE87 /* BookDetailsView.swift in Sources */,
 				88A0B8362643D65700F73C2B /* SearchBar.swift in Sources */,
-				88A0B83A2643D81300F73C2B /* OpenLibrarySearch.swift in Sources */,
+				88A0B83A2643D81300F73C2B /* OpenLibrarySearchService.swift in Sources */,
 				88A0B8412643DDA600F73C2B /* OpenLibarySearch.swift in Sources */,
 				88CFEBF12641413C0080CE87 /* BookEditView.swift in Sources */,
 				88CFEBF8264159F50080CE87 /* BookShelvesView.swift in Sources */,
@@ -649,6 +661,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		887818302644050B00A9DF21 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.3.0;
+			};
+		};
 		88CFEC082641E87A0080CE87 /* XCRemoteSwiftPackageReference "swiftui-system-colors" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/diniska/swiftui-system-colors";
@@ -668,6 +688,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		887818312644050B00A9DF21 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 887818302644050B00A9DF21 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		88CFEC092641E87A0080CE87 /* SystemColors */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 88CFEC082641E87A0080CE87 /* XCRemoteSwiftPackageReference "swiftui-system-colors" */;

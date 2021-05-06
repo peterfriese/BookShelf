@@ -15,9 +15,18 @@ struct Book: Codable, Hashable, Identifiable {
   var isbn: String
   var pages: Int
   var isRead: Bool = false
+  var coverEditionKey: String?
 }
 
 extension Book {
+  var hasImageUrl: Bool {
+    coverEditionKey != nil
+  }
+  
+  var smallCoverImageUrl: URL? { return URL(string: "https://covers.openlibrary.org/b/olid/\(coverEditionKey ?? "")-S.jpg") }
+  var mediumCoverImageUrl: URL? { return URL(string: "https://covers.openlibrary.org/b/olid/\(coverEditionKey ?? "")-M.jpg") }
+  var largeCoverImageUrl: URL? { return URL(string: "https://covers.openlibrary.org/b/olid/\(coverEditionKey ?? "")-L.jpg") }
+  
   var smallCoverImageName: String { return "\(isbn)-S" }
   var mediumCoverImageName: String { return "\(isbn)-M" }
   var largeCoverImageName: String { return "\(isbn)-L" }
@@ -34,7 +43,8 @@ extension Book {
   ]
   
   static let read = [
-    Book(title: "SwiftUI for Absolute Beginners", author: "Jayant Varma", isbn: "9781484255155", pages: 200),
+    Book(title: "Desing Patterns", author: "Erich Gamma", isbn: "0201633612", pages: 395, isRead: true, coverEditionKey: "OL22173620M"),
+    Book(title: "SwiftUI for Absolute Beginners", author: "Jayant Varma", isbn: "9781484255155", pages: 200)
   ]
   
   static let samples = [reading, wantToRead, read].flatMap { $0 }
