@@ -10,6 +10,7 @@ import SwiftUI
 struct BookShelfView: View {
   @Binding var bookShelf: BookShelf
   @EnvironmentObject var bookStore: BookStore
+  @State var isSearchViewPresented = false
   
   var body: some View {
     List {
@@ -56,6 +57,16 @@ struct BookShelfView: View {
       //      .listRowBackground(Color(UIColor.systemGray6))
     }
     .navigationTitle(bookShelf.title)
+    .toolbar {
+      ToolbarItem(placement: .primaryAction) {
+        Button(action: { isSearchViewPresented.toggle() }) {
+          Image(systemName: "plus")
+        }
+      }
+    }
+    .sheet(isPresented: $isSearchViewPresented) {
+      SearchBooksView()
+    }
     .onAppear() {
       print("\(#function): \(bookShelf.title) - \(bookShelf.id)")
       if let shelfId = bookShelf.id {
