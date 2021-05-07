@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct SearchBar: View {
   @Binding var text: String
   @Binding var isEditing: Bool
@@ -24,6 +22,14 @@ struct SearchBar: View {
     .animation(.default)
   }
   
+  var backgroundColor: Color {
+    #if os(iOS)
+    Color(.secondarySystemBackground)
+    #else
+    Color.controlBackground
+    #endif
+  }
+  
   var body: some View {
     HStack {
       TextField("Search...", text: $text) { isEditing in
@@ -34,7 +40,7 @@ struct SearchBar: View {
       }
       .padding(7)
       .padding(.horizontal, 25)
-      .background(Color(.secondarySystemBackground))
+      .background(backgroundColor)
       .cornerRadius(8)
       .overlay(
         HStack {
@@ -74,12 +80,15 @@ struct SearchBar: View {
   func cancelEditing() {
     clear()
     withAnimation {
+      #if os(iOS)
       UIApplication.shared.endEditing(true)
+      #endif
       isEditing = false
     }
   }
 }
 
+#if os(iOS)
 extension UIApplication {
   func endEditing(_ force: Bool) {
     self.windows
@@ -88,7 +97,9 @@ extension UIApplication {
       .endEditing(force)
   }
 }
+#endif
 
+#if os(iOS)
 struct ResignKeyboardOnDragGesture: ViewModifier {
   var gesture = DragGesture().onChanged{_ in
     UIApplication.shared.endEditing(true)
@@ -97,10 +108,15 @@ struct ResignKeyboardOnDragGesture: ViewModifier {
     content.gesture(gesture)
   }
 }
+#endif
 
 extension View {
   func resignKeyboardOnDragGesture() -> some View {
+    #if os(iOS)
     return modifier(ResignKeyboardOnDragGesture())
+    #else
+    return self
+    #endif
   }
 }
 

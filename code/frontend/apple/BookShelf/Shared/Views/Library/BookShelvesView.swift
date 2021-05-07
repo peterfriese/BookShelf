@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import FirebaseAnalyticsSwift
 
 struct BookShelvesView: View {
   @EnvironmentObject var bookShelfStore: BookShelfStore
@@ -27,7 +26,6 @@ struct BookShelvesView: View {
     .listStyle(SidebarListStyle())
     .navigationTitle("My Library")
     .bottomToolbar()
-    .analyticsScreen(name: "bookshelves")
     .onAppear() {
       bookShelfStore.subscribe()
     }

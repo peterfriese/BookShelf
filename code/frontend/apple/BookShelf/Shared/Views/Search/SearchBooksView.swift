@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Firebase
 
 struct SearchBooksView: View {
   @Environment(\.presentationMode) var presentationMode
@@ -41,7 +40,6 @@ struct SearchBooksView: View {
       }
       .navigationTitle("Search")
       //      .navigationBarHidden(isSearchFieldActive)
-      .analyticsScreen(name: "search")
       .toolbar {
         ToolbarItem(placement: .confirmationAction) {
           Button("Done") {

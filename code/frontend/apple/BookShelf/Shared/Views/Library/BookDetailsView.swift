@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Kingfisher
-import Firebase
 
 struct BookDetailsView: View {
   @Binding var book: Book
@@ -96,7 +95,6 @@ struct BookDetailsView: View {
       BookEditView(book: $book)
     }
     .navigationTitle(book.title)
-    .analyticsScreen(name: "bookdetails")
   }
 }
 
