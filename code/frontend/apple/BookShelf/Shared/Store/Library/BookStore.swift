@@ -16,25 +16,48 @@ class BookStore: ObservableObject {
   var db = Firestore.firestore()
   
   // MARK: - Publishers
+  @Published var user: User?
   @Published var books = [Book]()
   
   // MARK: - Private attributes
-  private var userId: String = "123"
+  @Published private var userId: String = "unknown"
   private var listenerRegistration: ListenerRegistration?
   private var cancellables = Set<AnyCancellable>()
   
   // MARK: - Logging
-  let logger = Logger(subsystem: "dev.peterfriese.BookShelf.dev", category: "persistence")
+  let logger = Logger(subsystem: "dev.peterfriese.BookShelf", category: "persistence | \(#fileID)")
   
   init(books: [Book]) {
     self.books = books
+    observeUser()
+  }
+  
+  func observeUser() {
+    $user
+      .compactMap { user in
+        user?.uid
+      }
+      .assign(to: &$userId)
+    
+    $userId
+      .receive(on: DispatchQueue.main)
+      .sink { userId in
+        self.logger.debug("User \(userId) has logged in.")
+        self.refresh()
+      }
+      .store(in: &cancellables)
   }
   
   deinit {
     unsubscribe()
   }
   
-  public func unsubscribe() {
+  func refresh() {
+    self.unsubscribe()
+    self.subscribe(shelfId: "")
+  }
+  
+  func unsubscribe() {
     if listenerRegistration != nil {
       listenerRegistration?.remove()
       listenerRegistration = nil
@@ -96,6 +119,7 @@ class BookStore: ObservableObject {
       var modifiableBook = book
       if shelf != nil {
         modifiableBook.shelfId = shelf?.id
+        modifiableBook.userId = userId
       }
       let newDocReference = try db.collection("books").addDocument(from: modifiableBook)
       self.logger.debug("Book stored with new document reference: \(newDocReference)")

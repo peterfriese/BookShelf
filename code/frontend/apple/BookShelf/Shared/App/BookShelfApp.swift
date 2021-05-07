@@ -18,6 +18,7 @@ struct BookShelfApp: App {
   // two app windows side-by-side.
   @StateObject var bookShelfStore = BookShelfStore(shelves: BookShelf.samples)
   @StateObject var bookStore = BookStore(books: Book.samples)
+  @StateObject var authenticationService = AuthenticationService()
   
   init() {
     FirebaseApp.configure()
@@ -29,8 +30,18 @@ struct BookShelfApp: App {
         BookShelvesView()
           .environmentObject(bookShelfStore)
           .environmentObject(bookStore)
+          .environmentObject(authenticationService)
         Text("Select a shelf to see its books")
         Text("Select a book to see its details")
+      }
+      .onAppear() {
+        authenticationService.$user
+          .assign(to: &bookShelfStore.$user)
+        
+        authenticationService.$user
+          .assign(to: &bookStore.$user)
+        
+        authenticationService.signIn()
       }
     }
   }

@@ -10,6 +10,9 @@ import SwiftUI
 struct BookShelvesView: View {
   @EnvironmentObject var bookShelfStore: BookShelfStore
   @EnvironmentObject var bookStore: BookStore
+  @EnvironmentObject var authenticationService: AuthenticationService
+  
+  @State var showsAddNewShelf = false
   
   var body: some View {
     List {
@@ -25,43 +28,24 @@ struct BookShelvesView: View {
     }
     .listStyle(SidebarListStyle())
     .navigationTitle("My Library")
-    .bottomToolbar()
+    .bottomToolbar(title: "New Folder", systemImage: "folder.badge.plus") {
+      self.showsAddNewShelf.toggle()
+    }
+    .toolbar {
+      ToolbarItem {
+        Button(action: { authenticationService.signOut() } ) {
+          Image(systemName: "person.circle")
+        }
+      }
+    }
     .onAppear() {
       bookShelfStore.subscribe()
     }
-  }
-}
-
-extension View {
-  func bottomToolbar() -> some View {
-    self.modifier(BottomToolbar())
-  }
-}
-
-struct BottomToolbar: ViewModifier {
-  func body(content: Content) -> some View {
-    #if os(macOS)
-    content
-      .overlay(
-        HStack {
-          Button(action: {})  {
-            Label("New Folder", systemImage: "plus.circle")
-          }
-          .buttonStyle(PlainButtonStyle())
-          .padding([.leading, .bottom], 8)
-          Spacer()
-        }
-        , alignment: .bottom)
-    #elseif os(iOS)
-    content
-      .toolbar {
-        ToolbarItem(placement: .bottomBar) {
-          Button(action: { }) {
-            Image(systemName: "folder.badge.plus")
-          }
-        }
+    .alert(isPresented: $showsAddNewShelf, TextAlert(title: "Title", action: { text in
+      if let shelfTitle = text {
+        self.bookShelfStore.createNewShelf(title: shelfTitle)
       }
-    #endif
+    }))
   }
 }
 

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		887818322644050B00A9DF21 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 887818312644050B00A9DF21 /* Kingfisher */; };
 		8878183726442C0100A9DF21 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8878183626442C0100A9DF21 /* Kingfisher */; };
+		888852FB26458B3A00B3363E /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888852FA26458B3A00B3363E /* AuthenticationService.swift */; };
+		888852FE264596D100B3363E /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888852FD264596D100B3363E /* Alert.swift */; };
+		8888530026459CA300B3363E /* BottomToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888852FF26459CA300B3363E /* BottomToolbar.swift */; };
 		88A0B8302643D5AC00F73C2B /* SearchBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A0B82F2643D5AC00F73C2B /* SearchBooksView.swift */; };
 		88A0B8312643D5AC00F73C2B /* SearchBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A0B82F2643D5AC00F73C2B /* SearchBooksView.swift */; };
 		88A0B8352643D65700F73C2B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A0B8342643D65700F73C2B /* SearchBar.swift */; };
@@ -58,6 +61,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		888852FA26458B3A00B3363E /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		888852FD264596D100B3363E /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		888852FF26459CA300B3363E /* BottomToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomToolbar.swift; sourceTree = "<group>"; };
 		88A0B82F2643D5AC00F73C2B /* SearchBooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBooksView.swift; sourceTree = "<group>"; };
 		88A0B8342643D65700F73C2B /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		88A0B8382643D81300F73C2B /* OpenLibrarySearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenLibrarySearchService.swift; sourceTree = "<group>"; };
@@ -116,9 +122,27 @@
 		8878182F2644021700A9DF21 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				888852F926458B0600B3363E /* Authentication */,
 				88A0B8372643D7F700F73C2B /* Search */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		888852F926458B0600B3363E /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				888852FA26458B3A00B3363E /* AuthenticationService.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		888852FC264596C100B3363E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				888852FD264596D100B3363E /* Alert.swift */,
+				888852FF26459CA300B3363E /* BottomToolbar.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		88A0B8322643D5CF00F73C2B /* Search */ = {
@@ -241,6 +265,7 @@
 		88CFEBE8264140AF0080CE87 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				888852FC264596C100B3363E /* Utilities */,
 				88A0B8332643D5DC00F73C2B /* Library */,
 				88A0B8322643D5CF00F73C2B /* Search */,
 			);
@@ -382,6 +407,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				888852FE264596D100B3363E /* Alert.swift in Sources */,
 				88CFEC032641695D0080CE87 /* BookShelfStore.swift in Sources */,
 				88CFEBCD264130100080CE87 /* BookShelfApp.swift in Sources */,
 				88CFEBF4264141810080CE87 /* ISBN.swift in Sources */,
@@ -392,9 +418,11 @@
 				88CFEC272642A4390080CE87 /* BookStore.swift in Sources */,
 				88A0B8302643D5AC00F73C2B /* SearchBooksView.swift in Sources */,
 				88CFEBED264140ED0080CE87 /* BookDetailsView.swift in Sources */,
+				8888530026459CA300B3363E /* BottomToolbar.swift in Sources */,
 				88A0B8352643D65700F73C2B /* SearchBar.swift in Sources */,
 				88A0B8392643D81300F73C2B /* OpenLibrarySearchService.swift in Sources */,
 				88A0B8402643DDA600F73C2B /* OpenLibarySearch.swift in Sources */,
+				888852FB26458B3A00B3363E /* AuthenticationService.swift in Sources */,
 				88CFEBF02641413C0080CE87 /* BookEditView.swift in Sources */,
 				88CFEBF7264159F50080CE87 /* BookShelvesView.swift in Sources */,
 				88CFEBE226413FFD0080CE87 /* Book.swift in Sources */,

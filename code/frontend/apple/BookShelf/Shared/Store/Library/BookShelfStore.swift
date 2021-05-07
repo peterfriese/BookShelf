@@ -16,25 +16,48 @@ class BookShelfStore: ObservableObject {
   var db = Firestore.firestore()
   
   // MARK: - Publishers
+  @Published var user: User?
   @Published var shelves = [BookShelf]()
   
   // MARK: - Private attributes
-  private var userId: String = "123"
+  @Published private var userId: String = "unknown"
   private var listenerRegistration: ListenerRegistration?
   private var cancellables = Set<AnyCancellable>()
   
   // MARK: - Logging
-  let logger = Logger(subsystem: "dev.peterfriese.BookShelf.dev", category: "persistence")
+  let logger = Logger(subsystem: "dev.peterfriese.BookShelf", category: "persistence | \(#fileID)")
   
   init(shelves: [BookShelf]) {
     self.shelves = shelves
+    observeUser()
+  }
+  
+  func observeUser() {
+    $user
+      .compactMap { user in
+        user?.uid
+      }
+      .assign(to: &$userId)
+    
+    $userId
+      .receive(on: DispatchQueue.main)
+      .sink { userId in
+        self.logger.debug("User \(userId) has logged in. Fetching data from Firestore.")
+        self.refresh()
+      }
+      .store(in: &cancellables)
   }
   
   deinit {
     unsubscribe()
   }
   
-  public func unsubscribe() {
+  func refresh() {
+    self.unsubscribe()
+    self.subscribe()
+  }
+  
+  func unsubscribe() {
     if listenerRegistration != nil {
       listenerRegistration?.remove()
       listenerRegistration = nil
@@ -88,4 +111,16 @@ class BookShelfStore: ObservableObject {
         }
     }
   }
+  
+  func createNewShelf(title: String) {
+    let shelf = BookShelf(userId: userId, title: title)
+    do {
+      let newDocReference = try db.collection("shelves").addDocument(from: shelf)
+      self.logger.debug("Shelf created with new document reference: \(newDocReference)")
+    }
+    catch {
+      self.logger.debug("Error saving doucment: \(error.localizedDescription)")
+    }
+  }
+
 }

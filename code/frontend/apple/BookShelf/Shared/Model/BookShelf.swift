@@ -10,11 +10,13 @@ import FirebaseFirestoreSwift
 
 struct BookShelf: Codable, Hashable, Identifiable {
   @DocumentID var id = UUID().uuidString
+  var userId: String?
   var title: String
   var books = [Book]()
   
   enum CodingKeys: String, CodingKey {
     case id
+    case userId
     case title
   }
 }
