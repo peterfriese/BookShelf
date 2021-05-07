@@ -13,6 +13,7 @@ struct BookShelvesView: View {
   @EnvironmentObject var authenticationService: AuthenticationService
   
   @State var showsAddNewShelf = false
+  @State var showsSettingsView = false
   
   var body: some View {
     List {
@@ -33,13 +34,16 @@ struct BookShelvesView: View {
     }
     .toolbar {
       ToolbarItem {
-        Button(action: { authenticationService.signOut() } ) {
+        Button(action: { showsSettingsView.toggle() } ) {
           Image(systemName: "person.circle")
         }
       }
     }
     .onAppear() {
       bookShelfStore.subscribe()
+    }
+    .sheet(isPresented: $showsSettingsView) {
+      SettingsView()
     }
     .alert(isPresented: $showsAddNewShelf, TextAlert(title: "Title", action: { text in
       if let shelfTitle = text {

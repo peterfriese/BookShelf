@@ -12,6 +12,8 @@
 		888852FB26458B3A00B3363E /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888852FA26458B3A00B3363E /* AuthenticationService.swift */; };
 		888852FE264596D100B3363E /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888852FD264596D100B3363E /* Alert.swift */; };
 		8888530026459CA300B3363E /* BottomToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888852FF26459CA300B3363E /* BottomToolbar.swift */; };
+		888853032645A38B00B3363E /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888853022645A38B00B3363E /* SignInView.swift */; };
+		888853062645A7A000B3363E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888853052645A7A000B3363E /* SettingsView.swift */; };
 		88A0B8302643D5AC00F73C2B /* SearchBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A0B82F2643D5AC00F73C2B /* SearchBooksView.swift */; };
 		88A0B8312643D5AC00F73C2B /* SearchBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A0B82F2643D5AC00F73C2B /* SearchBooksView.swift */; };
 		88A0B8352643D65700F73C2B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A0B8342643D65700F73C2B /* SearchBar.swift */; };
@@ -64,6 +66,9 @@
 		888852FA26458B3A00B3363E /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		888852FD264596D100B3363E /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		888852FF26459CA300B3363E /* BottomToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomToolbar.swift; sourceTree = "<group>"; };
+		888853022645A38B00B3363E /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		888853052645A7A000B3363E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		888853072645AAE800B3363E /* BookShelf.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BookShelf.entitlements; sourceTree = "<group>"; };
 		88A0B82F2643D5AC00F73C2B /* SearchBooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBooksView.swift; sourceTree = "<group>"; };
 		88A0B8342643D65700F73C2B /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		88A0B8382643D81300F73C2B /* OpenLibrarySearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenLibrarySearchService.swift; sourceTree = "<group>"; };
@@ -145,6 +150,22 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		888853012645A36E00B3363E /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				888853022645A38B00B3363E /* SignInView.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		888853042645A79400B3363E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				888853052645A7A000B3363E /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		88A0B8322643D5CF00F73C2B /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +209,7 @@
 		88CFEBB42641300E0080CE87 = {
 			isa = PBXGroup;
 			children = (
+				888853072645AAE800B3363E /* BookShelf.entitlements */,
 				88CFEBB92641300E0080CE87 /* Shared */,
 				88CFEBC3264130100080CE87 /* iOS */,
 				88CFEBCA264130100080CE87 /* macOS */,
@@ -265,9 +287,11 @@
 		88CFEBE8264140AF0080CE87 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				888852FC264596C100B3363E /* Utilities */,
+				888853042645A79400B3363E /* Settings */,
 				88A0B8332643D5DC00F73C2B /* Library */,
 				88A0B8322643D5CF00F73C2B /* Search */,
+				888853012645A36E00B3363E /* Authentication */,
+				888852FC264596C100B3363E /* Utilities */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -407,6 +431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				888853062645A7A000B3363E /* SettingsView.swift in Sources */,
 				888852FE264596D100B3363E /* Alert.swift in Sources */,
 				88CFEC032641695D0080CE87 /* BookShelfStore.swift in Sources */,
 				88CFEBCD264130100080CE87 /* BookShelfApp.swift in Sources */,
@@ -421,6 +446,7 @@
 				8888530026459CA300B3363E /* BottomToolbar.swift in Sources */,
 				88A0B8352643D65700F73C2B /* SearchBar.swift in Sources */,
 				88A0B8392643D81300F73C2B /* OpenLibrarySearchService.swift in Sources */,
+				888853032645A38B00B3363E /* SignInView.swift in Sources */,
 				88A0B8402643DDA600F73C2B /* OpenLibarySearch.swift in Sources */,
 				888852FB26458B3A00B3363E /* AuthenticationService.swift in Sources */,
 				88CFEBF02641413C0080CE87 /* BookEditView.swift in Sources */,
@@ -571,6 +597,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BookShelf.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YGAZHQXHH4;
 				ENABLE_PREVIEWS = YES;
@@ -593,6 +620,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BookShelf.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YGAZHQXHH4;
 				ENABLE_PREVIEWS = YES;

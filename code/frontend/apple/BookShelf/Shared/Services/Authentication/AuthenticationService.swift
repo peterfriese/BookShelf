@@ -11,10 +11,18 @@ import os
 
 class AuthenticationService: ObservableObject {
   @Published var user: User?
+  @Published var isSignedIn = false
   
   private var handle: AuthStateDidChangeListenerHandle?
   
   let logger = Logger(subsystem: "dev.peterfriese.BookShelf", category: "authentication")
+  
+  init() {
+    $user
+      .compactMap { $0 }
+      .map { !$0.isAnonymous }
+      .assign(to: &$isSignedIn)
+  }
   
   func signIn() {
     registerStateListener()
