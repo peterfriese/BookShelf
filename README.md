@@ -55,7 +55,9 @@
 
 This repository contains the source code for BookShelf, an app for cataloguing and tracking your books. The main purpose of the code is to show how to write an entire app that runs on Apple's main platforms using SwiftUI and Firebase.
 
-Watch the YouTube series and read my articles to learn more.
+I recently spoke about how I built this app at [CocoaHeadsNL](https://cocoaheads.nl/):
+* [Recording](https://www.youtube.com/watch?v=puo-pRlD3fA)
+* Slides: [Speaker Deck](https://speakerdeck.com/peterfriese/firebase-for-apple-developers) / [Slideshare](https://www.slideshare.net/peterfriese/firebase-for-apple-developers)
 
 
 <!-- GETTING STARTED -->
