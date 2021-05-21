@@ -12,7 +12,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/peterfriese/BookShelf">
-    <img src="assets/images/header.png" alt="Logo">
+    <img src="assets/images/screenshot-teaser_50.png" alt="screenshot">
   </a>
 
   <h1 align="center">BookShelf</h1>
@@ -20,16 +20,16 @@
   <p align="center">
     An app for cataloguing and tracking your books.
     <br />
-    <a href="https://peterfriese.dev/"><strong>Read the article »</strong></a>
+    <a href="https://www.youtube.com/watch?v=puo-pRlD3fA"><strong>Watch the talk »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/peterfriese/BookShelf/issues">Report Bug</a>
+    <a href="https://github.com/peterfriese/BookShelf/issues/new?assignees=&labels=&template=bug_report.md&title=">Report Bug</a>
     ·
-    <a href="https://github.com/peterfriese/BookShelf/issues">Request Feature</a>
+    <a href="https://github.com/peterfriese/BookShelf/issues/new?assignees=&labels=&template=feature_request.md&title=">Request Feature</a>
   </p>
 </p>
 
-
+✏️
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Table of Contents</summary>
@@ -49,6 +49,7 @@
     <li><a href="#license">License</a></li>
   </ol>
 </details>
+
 
 <!-- ABOUT THE PROJECT -->
 ## About
